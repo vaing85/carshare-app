@@ -1,0 +1,149 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  phone         String?
+  address       String?
+  city          String?
+  state         String?
+  zipCode       String?
+  isHost        Boolean   @default(false)
+  isVerified    Boolean   @default(false)
+  rating        Float     @default(0)
+  totalReviews  Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  cars             Car[]
+  bookings         Booking[]
+  reviews          Review[]
+  receivedReviews  Review[] @relation("UserReviews")
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+
+  @@map("users")
+}
+
+model Car {
+  id           String   @id @default(cuid())
+  make         String
+  model        String
+  year         Int
+  licensePlate String   @unique
+  vin          String   @unique
+  color        String
+  mileage      Int
+  fuelType     String
+  transmission String
+  seats        Int
+  doors        Int
+  features     String
+  description  String
+  dailyRate    Float
+  weeklyRate   Float?
+  monthlyRate  Float?
+  isAvailable  Boolean  @default(true)
+  location     String
+  latitude     Float?
+  longitude   Float?
+  rating       Float    @default(0)
+  totalReviews Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  hostId   String
+  host     User        @relation(fields: [hostId], references: [id], onDelete: Cascade)
+  bookings Booking[]
+  reviews  Review[]
+  images   CarImage[]
+
+  @@map("cars")
+}
+
+model CarImage {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String?
+  isPrimary Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  carId String
+  car   Car    @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@map("car_images")
+}
+
+model Booking {
+  id              String        @id @default(cuid())
+  startDate       DateTime
+  endDate         DateTime
+  totalPrice      Float
+  status          BookingStatus @default(PENDING)
+  pickupLocation  String?
+  dropoffLocation String?
+  notes           String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  carId  String
+  car    Car    @relation(fields: [carId], references: [id], onDelete: Cascade)
+  review Review?
+
+  @@map("bookings")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int      @default(5)
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId         String
+  user           User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  carId          String
+  car            Car     @relation(fields: [carId], references: [id], onDelete: Cascade)
+  bookingId      String  @unique
+  booking        Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  reviewedUserId String
+  reviewedUser   User    @relation("UserReviews", fields: [reviewedUserId], references: [id], onDelete: Cascade)
+
+  @@map("reviews")
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  content   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  senderId   String
+  sender     User   @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+  receiverId String
+  receiver   User   @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  @@map("messages")
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+  REJECTED
+}
