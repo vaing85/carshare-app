@@ -9,12 +9,12 @@
     }
   },
   "env": {
-    "NEXTAUTH_URL": "@nextauth_url",
-    "NEXTAUTH_SECRET": "@nextauth_secret",
-    "DATABASE_URL": "@database_url",
-    "RAPYD_ACCESS_KEY": "@rapyd_access_key",
-    "RAPYD_SECRET_KEY": "@rapyd_secret_key",
-    "RAPYD_BASE_URL": "@rapyd_base_url"
+    "NEXTAUTH_URL": "https://car-rental-app.vercel.app",
+    "NEXTAUTH_SECRET": "your-nextauth-secret-here",
+    "DATABASE_URL": "file:./dev.db",
+    "RAPYD_ACCESS_KEY": "your-rapyd-access-key-here",
+    "RAPYD_SECRET_KEY": "your-rapyd-secret-key-here",
+    "RAPYD_BASE_URL": "https://sandboxapi.rapyd.net"
   },
   "headers": [
     {
