@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import Link from "next/link";
-import { Car, Calendar, User, Shield, Star, MapPin, Phone, Mail } from "lucide-react";
+import { Car, Calendar, User, Shield, Star, MapPin, Phone, Mail, MessageSquare, Bell, Heart, Filter } from "lucide-react";
 
 export default function DashboardPage() {
   const { data: session, status } = useSession();
@@ -71,7 +71,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Link
             href="/cars"
             className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
@@ -88,7 +88,7 @@ export default function DashboardPage() {
           </Link>
 
           <Link
-            href="/dashboard/bookings"
+            href={session.user?.isHost ? "/dashboard/bookings" : "/dashboard/my-bookings"}
             className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
           >
             <div className="flex items-center space-x-3">
@@ -96,8 +96,12 @@ export default function DashboardPage() {
                 <Calendar className="h-6 w-6 text-green-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">My Bookings</h3>
-                <p className="text-gray-600">View and manage your rentals</p>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {session.user?.isHost ? "Manage Bookings" : "My Bookings"}
+                </h3>
+                <p className="text-gray-600">
+                  {session.user?.isHost ? "Manage incoming bookings" : "View and manage your rentals"}
+                </p>
               </div>
             </div>
           </Link>
@@ -131,6 +135,88 @@ export default function DashboardPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Become a Host</h3>
                   <p className="text-gray-600">List your car and earn money</p>
+                </div>
+              </div>
+            </Link>
+          )}
+
+          <Link
+            href="/dashboard/messages"
+            className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="bg-indigo-100 rounded-lg p-3">
+                <MessageSquare className="h-6 w-6 text-indigo-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Messages</h3>
+                <p className="text-gray-600">Chat with hosts and renters</p>
+              </div>
+            </div>
+          </Link>
+
+          {session.user?.isHost && (
+            <Link
+              href="/dashboard/host"
+              className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-center space-x-3">
+                <div className="bg-emerald-100 rounded-lg p-3">
+                  <Bell className="h-6 w-6 text-emerald-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Host Dashboard</h3>
+                  <p className="text-gray-600">Manage bookings and analytics</p>
+                </div>
+              </div>
+            </Link>
+          )}
+        </div>
+
+        {/* Additional Features */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <Link
+            href="/dashboard/wishlist"
+            className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="bg-red-100 rounded-lg p-3">
+                <Heart className="h-6 w-6 text-red-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Wishlist</h3>
+                <p className="text-gray-600">Save your favorite cars</p>
+              </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/cars/compare"
+            className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-center space-x-3">
+              <div className="bg-green-100 rounded-lg p-3">
+                <Filter className="h-6 w-6 text-green-600" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Compare Cars</h3>
+                <p className="text-gray-600">Compare features side by side</p>
+              </div>
+            </div>
+          </Link>
+
+          {session.user?.isHost && (
+            <Link
+              href="/dashboard/analytics"
+              className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-center space-x-3">
+                <div className="bg-purple-100 rounded-lg p-3">
+                  <Bell className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Analytics</h3>
+                  <p className="text-gray-600">Track your performance</p>
                 </div>
               </div>
             </Link>

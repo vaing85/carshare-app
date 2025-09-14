@@ -1,8 +1,20 @@
-import { Car, DollarSign, Shield, Users, CheckCircle } from "lucide-react";
+import { Car, DollarSign, Shield, Users, CheckCircle, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function HostPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Back to Dashboard */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <Link
+          href="/dashboard"
+          className="inline-flex items-center text-gray-600 hover:text-gray-900"
+        >
+          <ArrowLeft className="h-5 w-5 mr-2" />
+          Back to Dashboard
+        </Link>
+      </div>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-green-50 to-emerald-100 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -144,7 +156,7 @@ export default function HostPage() {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="Enter your first name"
                   />
                 </div>
@@ -154,7 +166,7 @@ export default function HostPage() {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                     placeholder="Enter your last name"
                   />
                 </div>
@@ -166,7 +178,7 @@ export default function HostPage() {
                 </label>
                 <input
                   type="email"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Enter your email address"
                 />
               </div>
@@ -177,7 +189,7 @@ export default function HostPage() {
                 </label>
                 <input
                   type="tel"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Enter your phone number"
                 />
               </div>
@@ -188,7 +200,7 @@ export default function HostPage() {
                 </label>
                 <input
                   type="text"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Enter your city"
                 />
               </div>

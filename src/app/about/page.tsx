@@ -8,7 +8,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             About
-            <span className="text-blue-600"> CarRental</span>
+            <span className="text-blue-600"> CarShare</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             We're building a community where car sharing is simple, safe, and sustainable. 
@@ -26,7 +26,7 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                At CarRental, we believe that car sharing should be accessible to everyone. 
+                At CarShare, we believe that car sharing should be accessible to everyone. 
                 We're creating a platform that connects car owners with people who need reliable 
                 transportation, building trust and community along the way.
               </p>
@@ -53,7 +53,7 @@ export default function AboutPage() {
                     Global Community
                   </h3>
                   <p className="text-gray-600">
-                    Join thousands of users worldwide who trust CarRental for their transportation needs.
+                    Join thousands of users worldwide who trust CarShare for their transportation needs.
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@ export default function AboutPage() {
               Our Values
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              These core values guide everything we do at CarRental.
+              These core values guide everything we do at CarShare.
             </p>
           </div>
           
@@ -119,7 +119,7 @@ export default function AboutPage() {
               Our Story
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              CarRental was founded in 2024 with a simple idea: what if we could make 
+              CarShare was founded in 2024 with a simple idea: what if we could make 
               car sharing as easy as booking a hotel room?
             </p>
           </div>
@@ -145,8 +145,8 @@ export default function AboutPage() {
                 car sharing even more convenient and secure.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                We're excited about the future of transportation and committed to making 
-                CarRental the go-to platform for car sharing worldwide.
+                                We're excited about the future of transportation and committed to making
+                CarShare the go-to platform for car sharing worldwide.
               </p>
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function AboutPage() {
             Get in Touch
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Have questions about CarRental? We'd love to hear from you and help you 
+            Have questions about CarShare? We'd love to hear from you and help you 
             get started with car sharing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -15,7 +15,7 @@ export default function Home() {
                 <span className="text-blue-600"> Ride</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Rent cars from trusted hosts in your area. Safe, reliable, and affordable car rental platform for every journey.
+                Rent cars from trusted hosts. Safe, reliable, and affordable.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -36,21 +36,21 @@ export default function Home() {
             <div className="relative">
               <div className="bg-white p-8 rounded-2xl shadow-xl">
                 <div className="bg-gray-100 rounded-lg p-6 mb-6">
-                  <h3 className="text-lg font-semibold mb-4">Quick Search</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-900">Quick Search</h3>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
                       <MapPin className="h-5 w-5 text-gray-400" />
                       <input
                         type="text"
                         placeholder="Pickup location"
-                        className="flex-1 p-2 border rounded-md"
+                        className="flex-1 p-2 border border-gray-300 rounded-md text-gray-900 bg-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                     <div className="flex items-center space-x-3">
                       <Calendar className="h-5 w-5 text-gray-400" />
                       <input
                         type="date"
-                        className="flex-1 p-2 border rounded-md"
+                        className="flex-1 p-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                     <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors">
@@ -69,10 +69,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose CarRental?
+              Why Choose CarShare?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We make car rental simple, safe, and convenient for everyone.
+              Simple, safe, and convenient car rental for everyone.
             </p>
           </div>
           
@@ -83,7 +83,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Safe & Secure</h3>
               <p className="text-gray-600">
-                All hosts are verified and cars are insured. Your safety is our priority.
+                Verified hosts and insured cars. Your safety is our priority.
               </p>
             </div>
             
@@ -93,7 +93,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Trusted Hosts</h3>
               <p className="text-gray-600">
-                Connect with reliable hosts who maintain their vehicles to the highest standards.
+                Reliable hosts who maintain their vehicles to the highest standards.
               </p>
             </div>
             
@@ -103,35 +103,9 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Community Driven</h3>
               <p className="text-gray-600">
-                Join our community of car enthusiasts and travelers from around the world.
+                Join our community of car enthusiasts and travelers worldwide.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of users who trust CarRental for their transportation needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/auth/register"
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Sign Up Now
-            </Link>
-            <Link
-              href="/cars"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Browse Available Cars
-            </Link>
           </div>
         </div>
       </section>

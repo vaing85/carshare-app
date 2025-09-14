@@ -1,6 +1,6 @@
-# CarRental App 🚗
+# CarShare App 🚗
 
-A modern car rental platform built with Next.js 15, TypeScript, Tailwind CSS, and Prisma.
+A modern car sharing platform built with Next.js 15, TypeScript, Tailwind CSS, and Prisma.
 
 ## ✨ Features
 

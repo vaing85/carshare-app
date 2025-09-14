@@ -8,23 +8,24 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String    @unique
-  emailVerified DateTime?
-  image         String?
-  password      String?
-  phone         String?
-  address       String?
-  city          String?
-  state         String?
-  zipCode       String?
-  isHost        Boolean   @default(false)
-  isVerified    Boolean   @default(false)
-  rating        Float     @default(0)
-  totalReviews  Int       @default(0)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id               String    @id @default(cuid())
+  name             String?
+  email            String    @unique
+  emailVerified    DateTime?
+  image            String?
+  password         String?
+  phone            String?
+  address          String?
+  city             String?
+  state            String?
+  zipCode          String?
+  isHost           Boolean   @default(false)
+  isVerified       Boolean   @default(false)
+  rating           Float     @default(0)
+  totalReviews     Int       @default(0)
+  rapydCustomerId  String?   @unique
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 
   cars             Car[]
   bookings         Booking[]
@@ -90,10 +91,13 @@ model Booking {
   startDate       DateTime
   endDate         DateTime
   totalPrice      Float
+  totalAmount     Float?
   status          BookingStatus @default(PENDING)
   pickupLocation  String?
   dropoffLocation String?
   notes           String?
+  paymentId       String?       @unique
+  paymentStatus   String?
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 
@@ -146,4 +150,5 @@ enum BookingStatus {
   COMPLETED
   CANCELLED
   REJECTED
+  REFUNDED
 }
